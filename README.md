@@ -2,9 +2,27 @@
 
 A .NET 8 WinForms application that simulates a fiber optic alignment and test station used in laser manufacturing automation. The app generates or accepts a unit serial number, simulates X/Y alignment, measures optical power and temperature, validates the unit against station tolerances, and saves completed test runs to a local SQLite database.
 
-## Screenshot
+## Application Screenshots
 
-![Fiber Optic Alignment and Test Station Simulator](docs/screenshot.png)
+### Initial Loadout
+
+![Initial simulator loadout](docs/initial%20loadout.png)
+
+### Generate Unit
+
+![Generated unit before alignment](docs/generate.png)
+
+### Run Alignment
+
+![Alignment test results](docs/run%20alignment.png)
+
+### Save Result
+
+![Saved test run history](docs/save.png)
+
+### Failed Test Example
+
+![Failed temperature test with failure reason](docs/failed%20test.png)
 
 ## Features
 
