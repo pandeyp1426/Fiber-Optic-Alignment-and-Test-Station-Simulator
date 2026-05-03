@@ -40,6 +40,7 @@ public class TestStation
 
         _motionController.AlignToPeak(part, _powerSensor);
         part.TemperatureC = SimulateTemperature();
+        ApplyDemoFailure(part);
 
         ValidationResult validation = _validator.Validate(part);
 
@@ -72,5 +73,26 @@ public class TestStation
         }
 
         return normalReading;
+    }
+
+    private void ApplyDemoFailure(FiberPart part)
+    {
+        string serialNumber = part.SerialNumber.Trim().ToUpperInvariant();
+
+        if (serialNumber.Contains("FAIL-ALIGN") || serialNumber.Contains("FAIL-ALL"))
+        {
+            part.XOffset = StationSettings.AlignmentToleranceMm + 0.05;
+            part.PowerMW = _powerSensor.MeasurePower(part.XOffset, part.YOffset);
+        }
+
+        if (serialNumber.Contains("FAIL-POWER") || serialNumber.Contains("FAIL-ALL"))
+        {
+            part.PowerMW = StationSettings.MinimumPowerMW - 0.25;
+        }
+
+        if (serialNumber.Contains("FAIL-TEMP") || serialNumber.Contains("FAIL-ALL"))
+        {
+            part.TemperatureC = StationSettings.MaximumTemperatureC + 2.0;
+        }
     }
 }
