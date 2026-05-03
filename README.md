@@ -29,7 +29,3 @@ The SQLite database is created automatically at startup under the application ou
 - `Services` contains simulation, alignment, and validation logic.
 - `Data` contains SQLite repository code.
 - `MainForm.cs` contains the single WinForms user interface.
-
-## Resume Summary
-
-Built a C#/.NET 8 WinForms simulator for a fiber optic alignment and test station, including virtual motion control, optical power simulation, tolerance validation, and SQLite persistence.
