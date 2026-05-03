@@ -1,0 +1,10 @@
+bin/
+obj/
+.vs/
+.dotnet/
+*.user
+*.sqlite
+*.db
+ProjectSettings.json
+VSWorkspaceState.json
+*.slnx
